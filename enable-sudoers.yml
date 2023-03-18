@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: enable ansible_user to perform password-less sudo
+      community.general.sudoers:
+        name: enable-passwordless-sudo
+        state: present
+        user: "{{ ansible_user }}"
+        commands: ALL
